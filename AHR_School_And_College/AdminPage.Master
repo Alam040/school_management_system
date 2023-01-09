@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminPage.master.cs" Inherits="AHR_School_And_College.AdminPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=Page.Title %> - Adhyapak Hamidur Rahman School and College</title>
+    <link rel="shoutcut icon" type="image/x-icon" href="~/image/favicon.ico" />
+
+    
+    <%-- Bootstrap - CSS --%>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <%-- DataTables - CSS --%>
+    <link href="datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <%-- Font-Awasome - CSS --%>
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" />
+
+    <%-- Animation-Style - CSS --%>
+    <link href="animation/animate.min.css" rel="stylesheet" />
+
+    <%-- AOS - Animation - CSS --%>
+    <link href="animation/aos_animation/aos.css" rel="stylesheet" />
+
+    <%-- Custom - CSS --%>
+    <link href="CustomStyle/style.css" rel="stylesheet" />
+
+    <%-- Bootstrap - JS --%>
+    <script src='<%= ResolveUrl("~/bootstrap/js/bootstrap.bundle.min.js") %>'></script>
+    <script src='<%= ResolveUrl("~/bootstrap/js/bootstrap.min.js") %>'></script>
+
+    <%-- DataTables - JS --%>
+    <%--<script src='<%= ResolveUrl("~/datatables/js/jquery.dataTables.min.js") %>'></script>--%>
+
+    <%-- Font-Awasome - JS --%>
+    <script src='<%= ResolveUrl("~/fontawesome/js/all.min.js") %>'></script>
+
+    <%-- AOS - Animation - JS --%>
+    <script src='<%= ResolveUrl("~/animation/aos_animation/aos.js") %>'></script>
+
+
+
+
+
+    <asp:ContentPlaceHolder ID="admin_head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form enctype="multipart/form-data" id="form1" runat="server" class="needs-validation" novalidate>
+        <div class="position-fixed fixed-top">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark  ">
+                <div class="container">
+                    <a class="navbar-brand" runat="server" href="~/admin/dashboard">
+                        <div class="brand">
+                            <div class="navbar-brand-img-div">
+                                <img runat="server" src="~/image/logo-2.png" alt="AHR" class="navbar-brand-img" />
+                            </div>
+                            <div class="navbar-brand-title">
+                                <span class="title0">AHR School & College</span>
+                                <span class="title1">Adhyapak Hamidur Rahman</span>
+                                <span class="title2">School & College</span>
+                            </div>
+                        </div>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" runat="server" aria-current="page" href="~/admin/dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" runat="server" href="~/admin/employees">Employee</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" runat="server" href="~/admin/students">Student</a>
+                            </li>
+                            <%--<li class="nav-item">
+                                <a class="nav-link active" aria-current="page" runat="server" href="~/admin/result">Result</a>
+                            </li>--%>
+                        </ul>
+                        <div class="d-flex">
+                            <asp:Button class="btn btn-outline-success" OnClick="admin_logout_Click" Text="Logout" ID="admin_logout" runat="server" /> 
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <main class="p-1">
+            <asp:ContentPlaceHolder ID="admin_body" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+        <footer class="footer">
+            <div class="container-fluid footer-title-div">
+                <h1 class="footer-title" style="color: #fff;">Adhyapak Hamidur Rahman</h1>
+                <h3 class="footer-title footer-subtitle" style="color: #fff;">School & College</h3>
+                <div class="brand-div">
+                    <span class="footer-icon" style="color: #fff;"><i class="fa-brands fa-square-facebook"></i></span>
+                    <span class="footer-icon" style="color: #fff;"><i class="fa-brands fa-linkedin"></i></span>
+                    <span class="footer-icon" style="color: #fff;"><i class="fa-brands fa-youtube"></i></span>
+                </div>
+            </div>
+            <div class="container-fluid d-flex flex-column p-3 footer-copyright">
+                <center>
+                    <p class="mb-0 copyright" style="color: #fff;">&copy; <%: DateTime.Now.Year %> - Adhyapak Hamidur Rahman School & college</p>
+                    <a class="developed a-link" href="#" style="color: #fff;">Developed By - <span style="color: yellow">Jahangir Alam</span></a>
+                </center>
+            </div>
+        </footer>
+    </form>
+    <script src='<%= ResolveUrl("~/CustomStyle/app.js") %>' type="text/javascript"></script>
+    <%--<script>
+        AOS.init();
+    </script>--%>
+</body>
+</html>
