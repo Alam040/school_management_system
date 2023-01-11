@@ -55,7 +55,7 @@ namespace AHR_School_And_College
         {
             //Public Route
 
-            routes.MapPageRoute("defaultRoute", "https://alam040.github.io/school_management_system", "~/Pages/PublicPage/Home.aspx");
+            routes.MapPageRoute("defaultRoute", "https://alam040.github.io/school_management_system/", "~/Pages/PublicPage/Home.aspx");
             routes.MapPageRoute("home", "home", "~/Pages/PublicPage/Home.aspx");
             routes.MapPageRoute("about", "about", "~/Pages/PublicPage/About.aspx");
             //routes.MapPageRoute("faculties", "faculties", "~/Pages/PublicPage/Faculties.aspx");
