@@ -1,75 +1,33 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
 name: .NET
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
+    branches: [ master ]
   pull_request:
-    branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+    branches: [ master ]
 
 jobs:
-  # Build job
   build:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 6.0.x
-      - name: Restore dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build src/AHR_School_And_College/AHR_School_And_College.csproj --configuration
-      - name: Test
-        run: dotnet test --no-build --verbosity normal
-      - name: Publish
-        run: dotnet publish AHR_School_And_College/AHR_School_And_College.csproj -c Release -o website
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          source: ./
-          name: website
-          destination: ./_site
-          path: AHR_School_And_College/website/**
-          if-no-file-found: error
-      
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
-  # release
-      - name: Build and run .net tests
-        run: |
-          dotnet build src/MIDTesters.Core/MIDTesters.Core.csproj
-          dotnet test src/MIDTesters.Core/MIDTesters.Core.csproj
-      - name: NuGet setup
-        uses: warrenbuckley/Setup-Nuget@v1
-      - name: Publish NuGet Package
-        run: |
-          nuget setApiKey ${{ secrets.NUGET_API_KEY }}
-          nuget push src/AHR_School_And_College/bin/release/OpenProtocolInterpreter.3.0.3.nupkg -Source https://api.nuget.org/v3/index.json -SkipDuplicate
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+    - name: Publish
+      run: dotnet publish AHR_School_And_College/AHR_School_And_College.csproj -c Release -o website
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: website
+        path: AHR_School_And_College/website/**
+        if-no-files-found: error
