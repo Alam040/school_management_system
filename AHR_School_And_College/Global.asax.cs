@@ -60,8 +60,8 @@ namespace AHR_School_And_College
             routes.MapPageRoute("about", "about", "~/Pages/PublicPage/About.aspx");
             //routes.MapPageRoute("faculties", "faculties", "~/Pages/PublicPage/Faculties.aspx");
             //routes.MapPageRoute("admission", "admission", "~/Pages/PublicPage/Admission.aspx");
-            routes.MapPageRoute("admission-newclass", "admission/newclass", "~/Pages/PublicPage/NewClassAdmission.aspx");
-            routes.MapPageRoute("result", "result", "~/Pages/PublicPage/Result.aspx");
+            //routes.MapPageRoute("admission-newclass", "admission/newclass", "~/Pages/PublicPage/NewClassAdmission.aspx");
+            //routes.MapPageRoute("result", "result", "~/Pages/PublicPage/Result.aspx");
             //routes.MapPageRoute("notice", "notice", "~/Pages/PublicPage/Notice.aspx");
             routes.MapPageRoute("contact", "contact", "~/Pages/PublicPage/Contact.aspx");
             //routes.MapPageRoute("login", "login", "~/Pages/PublicPage/Login.aspx");
