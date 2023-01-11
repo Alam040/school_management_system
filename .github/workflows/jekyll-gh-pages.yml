@@ -20,7 +20,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: actions/jekyll-build-pages@v1
+      run: actions/jekyll-build-pages@v1 AHR_School_And_College/AHR_School_And_College.csproj
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
